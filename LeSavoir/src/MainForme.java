@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Color;
+import java.awt.Font;
 
 public class MainForme {
 
@@ -42,9 +44,12 @@ public class MainForme {
 		frame.setBounds(100, 100, 489, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 466, 21);
+		menuBar.setFont(new Font("Segoe UI", Font.ITALIC, 12));
+		menuBar.setBackground(Color.LIGHT_GRAY);
+		menuBar.setBounds(0, 0, 1000, 21);
 		frame.getContentPane().add(menuBar);
 		
 		JMenu mnConnection = new JMenu("Connection");
@@ -107,9 +112,6 @@ public class MainForme {
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Ajouter une Classe");
 		mnNewMenu.add(mntmNewMenuItem_4);
 		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("New menu item");
-		mnNewMenu.add(mntmNewMenuItem_5);
-		
 		JMenu mnNewMenu_1 = new JMenu("Ann\u00E9es scolaires");
 		menuBar.add(mnNewMenu_1);
 		
@@ -118,5 +120,17 @@ public class MainForme {
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Ajouter une ann\u00E9e scolaire");
 		mnNewMenu_1.add(mntmNewMenuItem_7);
+		
+		JMenuItem mntmConstructionRentreScolaire = new JMenuItem("Construction rentr\u00E9e scolaire");
+		mnNewMenu_1.add(mntmConstructionRentreScolaire);
+		
+		JMenu mnNewMenu_2 = new JMenu("Administration de la base");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmMajStructure = new JMenuItem("Maj structure");
+		mnNewMenu_2.add(mntmMajStructure);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Verification connection");
+		mnNewMenu_2.add(mntmNewMenuItem_5);
 	}
 }
