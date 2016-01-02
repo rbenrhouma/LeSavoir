@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class MainForme {
 
@@ -15,8 +18,8 @@ public class MainForme {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainForme window = new MainForme();
-					window.frame.setVisible(true);
+					MainForme f = new MainForme();
+					f.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,15 +39,84 @@ public class MainForme {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 489, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(26, 78, 175, 30);
-		frame.getContentPane().add(panel);
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 466, 21);
+		frame.getContentPane().add(menuBar);
 		
-		JLabel lblNewLabel = new JLabel("Salut les amis");
-		panel.add(lblNewLabel);
+		JMenu mnConnection = new JMenu("Connection");
+		menuBar.add(mnConnection);
+		
+		JMenuItem mntmConnection = new JMenuItem("Connection/d\u00E9connection");
+		mnConnection.add(mntmConnection);
+		
+		JMenuItem mntmInfosUtililisateur = new JMenuItem("Infos Utililisateur");
+		mnConnection.add(mntmInfosUtililisateur);
+		
+		JMenuItem mntmFermer = new JMenuItem("Fermer");
+		mnConnection.add(mntmFermer);
+		
+		JMenuItem mnEleves = new JMenu("El\u00E8ves");
+		menuBar.add(mnEleves);
+		
+		JMenuItem mntmListeDesElves = new JMenuItem("Liste des El\u00E8ves");
+		mnEleves.add(mntmListeDesElves);
+		
+		JMenuItem mntmListeDesElve = new JMenuItem("Liste des El\u00E8ve de l'ann\u00E9e ???");
+		mnEleves.add(mntmListeDesElve);
+		
+		JMenuItem mntmArbreDeslves = new JMenuItem("Arbre des \u00E9l\u00E8ves par tuteur");
+		mnEleves.add(mntmArbreDeslves);
+		
+		JMenuItem mntmAjouterUnlve = new JMenuItem("Ajouter un \u00E9l\u00E8ve");
+		mnEleves.add(mntmAjouterUnlve);
+		
+		JMenu mnTuteur = new JMenu("Tuteur");
+		menuBar.add(mnTuteur);
+		
+		JMenuItem mntmListeDesTuteurs = new JMenuItem("Liste des tuteurs");
+		mnTuteur.add(mntmListeDesTuteurs);
+		
+		JMenuItem mntmListeDesTuteurs_1 = new JMenuItem("Liste des tuteurs de l'ann\u00E9es ???");
+		mnTuteur.add(mntmListeDesTuteurs_1);
+		
+		JMenuItem mntmAjoutDeTuteur = new JMenuItem("Ajout de tuteur");
+		mnTuteur.add(mntmAjoutDeTuteur);
+		
+		JMenuItem mntmAnimateurs = new JMenu("Animateurs");
+		menuBar.add(mntmAnimateurs);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Liste des animateurs");
+		mntmAnimateurs.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Liste des Animateur de l'ann\u00E9e ????");
+		mntmAnimateurs.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Ajouter un animateur");
+		mntmAnimateurs.add(mntmNewMenuItem_2);
+		
+		JMenu mnNewMenu = new JMenu("Classes");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Liste des Classes");
+		mnNewMenu.add(mntmNewMenuItem_3);
+		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Ajouter une Classe");
+		mnNewMenu.add(mntmNewMenuItem_4);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("New menu item");
+		mnNewMenu.add(mntmNewMenuItem_5);
+		
+		JMenu mnNewMenu_1 = new JMenu("Ann\u00E9es scolaires");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Liste des An\u00E9es scolaires");
+		mnNewMenu_1.add(mntmNewMenuItem_6);
+		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Ajouter une ann\u00E9e scolaire");
+		mnNewMenu_1.add(mntmNewMenuItem_7);
 	}
 }
