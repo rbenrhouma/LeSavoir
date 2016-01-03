@@ -15,10 +15,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 
 public class FormeTree extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -50,5 +53,29 @@ public class FormeTree extends JFrame {
 		JTree tree = new JTree();
 		tree.setBounds(10, 11, 179, 311);
 		contentPane.add(tree);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(199, 11, 432, 320);
+		contentPane.add(tabbedPane);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane.addTab("Tuteur", null, panel_1, null);
+		panel_1.setLayout(null);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(50, 26, 102, 20);
+		panel_1.add(comboBox);
+		
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("El\u00E8ve", null, panel, null);
+		panel.setLayout(null);
+		
+		table = new JTable();
+		table.setBounds(41, 30, 346, 228);
+		panel.add(table);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_2, null);
+		panel_2.setLayout(null);
 	}
 }
