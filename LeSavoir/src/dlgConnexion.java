@@ -1,53 +1,66 @@
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.EventQueue;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import java.awt.Canvas;
+import java.awt.Panel;
+import java.awt.Scrollbar;
 
-public class dlgConnexion extends JDialog {
+public class dlgConnexion extends JFrame {
 
-	private final JPanel contentPanel = new JPanel();
+	private JPanel contentPane;
+	private JPasswordField passwordField;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		try {
-			dlgConnexion dialog = new dlgConnexion();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					dlgConnexion frame = new dlgConnexion();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	/**
-	 * Create the dialog.
+	 * Create the frame.
 	 */
 	public dlgConnexion() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setLayout(new FlowLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(259, 136, 135, 20);
+		contentPane.add(passwordField);
+		
+		textField = new JTextField();
+		textField.setBounds(259, 44, 135, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(305, 205, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(191, 205, 89, 23);
+		contentPane.add(btnNewButton_1);
 	}
-
 }
