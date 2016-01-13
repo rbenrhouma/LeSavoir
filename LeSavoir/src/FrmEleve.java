@@ -7,10 +7,27 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import java.awt.Font;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import net.miginfocom.swing.MigLayout;
+import java.awt.FlowLayout;
+import javax.swing.JComboBox;
+import java.awt.GridBagConstraints;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.JSplitPane;
 
 public class FrmEleve extends JFrame {
-
-	private JPanel contentPane;
 	private JTable table;
 
 	/**
@@ -21,9 +38,11 @@ public class FrmEleve extends JFrame {
 			public void run() {
 				try {
 					FrmEleve frame = new FrmEleve();
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
+					
 				}
 			}
 		});
@@ -34,22 +53,32 @@ public class FrmEleve extends JFrame {
 	 */
 	public FrmEleve() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 863, 501);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBounds(100, 100, 644, 455);
+		getContentPane().setLayout(new GridLayout(0, 3, 2, 2));
 		
-		JButton btnNewButton = new JButton("Load");
-		btnNewButton.setBounds(641, 62, 89, 23);
-		contentPane.add(btnNewButton);
+		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.inactiveCaption);
+		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+		flowLayout.setAlignment(FlowLayout.RIGHT);
+		getContentPane().add(panel);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(424, 96, 413, 356);
-		contentPane.add(scrollPane);
+		JPanel panel_2 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panel_2.getLayout();
+		flowLayout_2.setAlignment(FlowLayout.LEFT);
+		flowLayout_2.setVgap(10);
+		panel_2.setBackground(SystemColor.activeCaption);
+		getContentPane().add(panel_2);
+		
+		JSplitPane splitPane = new JSplitPane();
+		getContentPane().add(splitPane);
+		
+		JPanel panel_1 = new JPanel();
+		splitPane.setLeftComponent(panel_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		panel_1.add(scrollPane_1);
 		
 		table = new JTable();
-		scrollPane.setViewportView(table);
+		splitPane.setRightComponent(table);
 	}
-
 }
