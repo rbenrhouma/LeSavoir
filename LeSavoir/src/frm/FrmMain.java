@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
@@ -44,13 +46,14 @@ public class FrmMain extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmMain() {
+		setTitle("Gestion scolaire Ecole LE SAVOIR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu_3 = new JMenu("New menu");
+		JMenu mnNewMenu_3 = new JMenu("Connexion");
 		menuBar.add(mnNewMenu_3);
 		
 		JMenuItem mntmNewMenuItem_15 = new JMenuItem("New menu item");
@@ -59,22 +62,34 @@ public class FrmMain extends JFrame {
 		JMenuItem mntmNewMenuItem_16 = new JMenuItem("New menu item");
 		mnNewMenu_3.add(mntmNewMenuItem_16);
 		
-		JMenuItem mntmNewMenuItem_17 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Fermer");
+		mntmNewMenuItem_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		mnNewMenu_3.add(mntmNewMenuItem_17);
 		
-		JMenu mnNewMenu_4 = new JMenu("New menu");
+		JMenu mnNewMenu_4 = new JMenu("El\u00E8ves");
 		menuBar.add(mnNewMenu_4);
 		
-		JMenuItem mntmNewMenuItem_18 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_18 = new JMenuItem("Liste des \u00E9l\u00E8ve");
 		mnNewMenu_4.add(mntmNewMenuItem_18);
 		
-		JMenuItem mntmNewMenuItem_19 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_19 = new JMenuItem("Vue hi\u00E9rarchique ");
 		mnNewMenu_4.add(mntmNewMenuItem_19);
 		
-		JMenu mnNewMenu_5 = new JMenu("New menu");
+		JMenuItem mntmNewMenuItem_29 = new JMenuItem("-");
+		mntmNewMenuItem_29.setSelected(true);
+		mnNewMenu_4.add(mntmNewMenuItem_29);
+		
+		JMenuItem mntmNewMenuItem_30 = new JMenuItem("Edition");
+		mnNewMenu_4.add(mntmNewMenuItem_30);
+		
+		JMenu mnNewMenu_5 = new JMenu("Professeurs");
 		menuBar.add(mnNewMenu_5);
 		
-		JMenuItem mntmNewMenuItem_20 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_20 = new JMenuItem("Liste");
 		mnNewMenu_5.add(mntmNewMenuItem_20);
 		
 		JMenuItem mntmNewMenuItem_21 = new JMenuItem("New menu item");
@@ -83,11 +98,32 @@ public class FrmMain extends JFrame {
 		JMenuItem mntmNewMenuItem_22 = new JMenuItem("New menu item");
 		mnNewMenu_5.add(mntmNewMenuItem_22);
 		
-		JMenu mnNewMenu_6 = new JMenu("New menu");
+		JMenu mnNewMenu_6 = new JMenu("Groupe");
 		menuBar.add(mnNewMenu_6);
 		
 		JMenuItem mntmNewMenuItem_23 = new JMenuItem("New menu item");
 		mnNewMenu_6.add(mntmNewMenuItem_23);
+		
+		JMenuItem mntmNewMenuItem_24 = new JMenuItem("New menu item");
+		mnNewMenu_6.add(mntmNewMenuItem_24);
+		
+		JMenuItem mntmNewMenuItem_25 = new JMenuItem("New menu item");
+		mnNewMenu_6.add(mntmNewMenuItem_25);
+		
+		JMenu mnAnneScolaire = new JMenu("Ann\u00E9e scolaire");
+		menuBar.add(mnAnneScolaire);
+		
+		JMenuItem mntmNewMenuItem_26 = new JMenuItem("Liste des ann\u00E9es scolaires");
+		mnAnneScolaire.add(mntmNewMenuItem_26);
+		
+		JMenuItem mntmNewMenuItem_28 = new JMenuItem("New menu item");
+		mnAnneScolaire.add(mntmNewMenuItem_28);
+		
+		JMenu mnNewMenu_7 = new JMenu("Administration");
+		menuBar.add(mnNewMenu_7);
+		
+		JMenuItem mntmNewMenuItem_27 = new JMenuItem("Mise \u00E0 jours de la structure");
+		mnNewMenu_7.add(mntmNewMenuItem_27);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

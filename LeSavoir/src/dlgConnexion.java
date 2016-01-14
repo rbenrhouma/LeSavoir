@@ -122,6 +122,7 @@ public class dlgConnexion extends JFrame {
 		JButton button = new JButton("Ok");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		button.setBounds(197, 178, 79, 23);
