@@ -1,21 +1,21 @@
-import java.awt.EventQueue;
+package frm;
 
-import javax.swing.JFrame;
-
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-public class MainForme {
+public class FrmMain extends JFrame {
 
-	private JFrame frmGestionDeGroupe;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -24,8 +24,9 @@ public class MainForme {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainForme f = new MainForme();
-					f.frmGestionDeGroupe.setVisible(true);
+					FrmMain frame = new FrmMain();
+					
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,21 +35,20 @@ public class MainForme {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
-	public MainForme() {
-		initialize();
+	public FrmMain() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
-		frmGestionDeGroupe = new JFrame();
-		frmGestionDeGroupe.setTitle("Gestion du groupe scolaire Philippe Grenier");
-		frmGestionDeGroupe.setBounds(100, 100, 489, 300);
-		frmGestionDeGroupe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmGestionDeGroupe.setExtendedState(frmGestionDeGroupe.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.ITALIC, 12));
@@ -169,5 +169,6 @@ public class MainForme {
 		lblGroupeScolairePhilippe.setForeground(Color.BLUE);
 		lblGroupeScolairePhilippe.setFont(new Font("Algerian", Font.PLAIN, 25));
 		
-	}
+	}	
+	
 }
