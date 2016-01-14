@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -34,6 +33,10 @@ import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class dlgConnexion extends JFrame {
 
@@ -50,6 +53,8 @@ public class dlgConnexion extends JFrame {
 	private JPasswordField eSqlPasswordSys;
 	private JPasswordField eSqlPassword;
 
+	public DBConnexion baseConnexion ;         // Connexion à la base de travail 
+	public DBConnexion systemBaseConnexion ;   // Connexion à la base système pour mise à jour.
 	/**
 	 * Launch the application.
 	 */
@@ -70,6 +75,14 @@ public class dlgConnexion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	private void FillEditsSystemDB(){
+		eSqlServerNameSys.setText(eSqlServerName.getText()); 
+		eSqlPortSys.setText(eSqlPortSys.getText());
+		eSqlUerSys.setText(eSqlUerSys.getText());
+		eSqlPasswordSys.setText(eSqlPasswordSys.getText());
+	}
+	
 	public dlgConnexion() {
 		setMaximumSize(new Dimension(100, 100));
 		setBounds(new Rectangle(100, 100, 100, 100));
@@ -107,6 +120,10 @@ public class dlgConnexion extends JFrame {
 		AppliConnexion.add(eApplicationPassWord);
 		
 		JButton button = new JButton("Ok");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button.setBounds(197, 178, 79, 23);
 		AppliConnexion.add(button);
 		
@@ -157,6 +174,20 @@ public class dlgConnexion extends JFrame {
 		panel_1.add(lblNewLabel_2);
 		
 		eSqlServerName = new JTextField();
+		eSqlServerName.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+			}
+		});
+		eSqlServerName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FillEditsSystemDB();
+			}
+		});
+		eSqlServerName.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+			}
+		});
 		eSqlServerName.setText("(local)\\SQLSERVER2012");
 		eSqlServerName.setBounds(118, 33, 145, 20);
 		panel_1.add(eSqlServerName);
@@ -167,8 +198,10 @@ public class dlgConnexion extends JFrame {
 		panel_1.add(lblPort);
 		
 		eSqlPort = new JTextField();
+		eSqlPort.setText("49159");
 		eSqlPort.setColumns(10);
 		eSqlPort.setBounds(118, 61, 145, 20);
+		
 		panel_1.add(eSqlPort);
 		
 		JLabel lblUser = new JLabel("User");
@@ -189,11 +222,21 @@ public class dlgConnexion extends JFrame {
 		chckbxSameServer.setSelected(true);
 		chckbxSameServer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				eSqlServerNameSys.setEditable(!chckbxSameServer.isSelected());
+				eSqlPortSys.setEditable(!chckbxSameServer.isSelected());
+				eSqlUerSys.setEditable(!chckbxSameServer.isSelected());
+				eSqlPasswordSys.setEditable(!chckbxSameServer.isSelected());
+
 				eSqlServerNameSys.setEnabled(!chckbxSameServer.isSelected());
 				eSqlPortSys.setEnabled(!chckbxSameServer.isSelected());
 				eSqlUerSys.setEnabled(!chckbxSameServer.isSelected());
 				eSqlPasswordSys.setEnabled(!chckbxSameServer.isSelected());
-			}
+					if (chckbxSameServer.isSelected()){
+					FillEditsSystemDB();
+					}
+				}
+			
+
 		});
 		chckbxSameServer.setBackground(Color.WHITE);
 		chckbxSameServer.setBounds(6, 173, 259, 20);
@@ -204,7 +247,7 @@ public class dlgConnexion extends JFrame {
 		panel_1.add(lblBaseName);
 		
 		JComboBox cbDataBaseName = new JComboBox();
-		cbDataBaseName.setModel(new DefaultComboBoxModel(new String[] {"Base1", "Base2", "Base3"}));
+		cbDataBaseName.setModel(new DefaultComboBoxModel(new String[] {"Base1", "LE_SAVOIR", "Base3"}));
 		cbDataBaseName.setSelectedIndex(1);
 		cbDataBaseName.setToolTipText("");
 		cbDataBaseName.setBounds(118, 89, 145, 20);
@@ -232,6 +275,8 @@ public class dlgConnexion extends JFrame {
 		panel_3.add(label);
 		
 		eSqlServerNameSys = new JTextField();
+		eSqlServerNameSys.setEditable(false);
+		eSqlServerNameSys.setEnabled(false);
 		eSqlServerNameSys.setBackground(Color.WHITE);
 		eSqlServerNameSys.setText("(local)\\SQLSERVER2012");
 		eSqlServerNameSys.setColumns(10);
@@ -243,6 +288,9 @@ public class dlgConnexion extends JFrame {
 		panel_3.add(label_1);
 		
 		eSqlPortSys = new JTextField();
+		eSqlPortSys.setEditable(false);
+		eSqlPortSys.setEnabled(false);
+		eSqlPortSys.setText("49159");
 		eSqlPortSys.setBackground(Color.WHITE);
 		eSqlPortSys.setColumns(10);
 		eSqlPortSys.setBounds(118, 61, 145, 20);
@@ -253,6 +301,8 @@ public class dlgConnexion extends JFrame {
 		panel_3.add(label_2);
 		
 		eSqlUerSys = new JTextField();
+		eSqlUerSys.setEditable(false);
+		eSqlUerSys.setEnabled(false);
 		eSqlUerSys.setBackground(Color.WHITE);
 		eSqlUerSys.setText("Administratur");
 		eSqlUerSys.setColumns(10);
@@ -276,6 +326,8 @@ public class dlgConnexion extends JFrame {
 		panel_3.add(eBaseNameSys);
 		
 		eSqlPasswordSys = new JPasswordField();
+		eSqlPasswordSys.setEditable(false);
+		eSqlPasswordSys.setEnabled(false);
 		eSqlPasswordSys.setBackground(Color.WHITE);
 		eSqlPasswordSys.setText("Admin");
 		eSqlPasswordSys.setBounds(118, 149, 145, 20);
@@ -286,5 +338,6 @@ public class dlgConnexion extends JFrame {
 		lblNewLabel_3.setIcon(new ImageIcon(dlgConnexion.class.getResource("/Images/syst\u00E8me-de-gestion-de-base-de-donn\u00E9es-2.jpg")));
 		lblNewLabel_3.setBounds(10, 28, 106, 184);
 		panel_2.add(lblNewLabel_3);
+		
 	}
 }

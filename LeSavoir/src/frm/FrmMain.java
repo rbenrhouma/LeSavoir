@@ -1,6 +1,7 @@
 package frm;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -13,19 +14,24 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
+
 public class FrmMain extends JFrame {
 
 	private JPanel contentPane;
+	
+	
 
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmMain frame = new FrmMain();
-					
+					FrmMain frame = new FrmMain();					
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,10 +46,52 @@ public class FrmMain extends JFrame {
 	public FrmMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu_3 = new JMenu("New menu");
+		menuBar.add(mnNewMenu_3);
+		
+		JMenuItem mntmNewMenuItem_15 = new JMenuItem("New menu item");
+		mnNewMenu_3.add(mntmNewMenuItem_15);
+		
+		JMenuItem mntmNewMenuItem_16 = new JMenuItem("New menu item");
+		mnNewMenu_3.add(mntmNewMenuItem_16);
+		
+		JMenuItem mntmNewMenuItem_17 = new JMenuItem("New menu item");
+		mnNewMenu_3.add(mntmNewMenuItem_17);
+		
+		JMenu mnNewMenu_4 = new JMenu("New menu");
+		menuBar.add(mnNewMenu_4);
+		
+		JMenuItem mntmNewMenuItem_18 = new JMenuItem("New menu item");
+		mnNewMenu_4.add(mntmNewMenuItem_18);
+		
+		JMenuItem mntmNewMenuItem_19 = new JMenuItem("New menu item");
+		mnNewMenu_4.add(mntmNewMenuItem_19);
+		
+		JMenu mnNewMenu_5 = new JMenu("New menu");
+		menuBar.add(mnNewMenu_5);
+		
+		JMenuItem mntmNewMenuItem_20 = new JMenuItem("New menu item");
+		mnNewMenu_5.add(mntmNewMenuItem_20);
+		
+		JMenuItem mntmNewMenuItem_21 = new JMenuItem("New menu item");
+		mnNewMenu_5.add(mntmNewMenuItem_21);
+		
+		JMenuItem mntmNewMenuItem_22 = new JMenuItem("New menu item");
+		mnNewMenu_5.add(mntmNewMenuItem_22);
+		
+		JMenu mnNewMenu_6 = new JMenu("New menu");
+		menuBar.add(mnNewMenu_6);
+		
+		JMenuItem mntmNewMenuItem_23 = new JMenuItem("New menu item");
+		mnNewMenu_6.add(mntmNewMenuItem_23);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 	}
 
 
@@ -170,5 +218,4 @@ public class FrmMain extends JFrame {
 		lblGroupeScolairePhilippe.setFont(new Font("Algerian", Font.PLAIN, 25));
 		
 	}	
-	
 }
