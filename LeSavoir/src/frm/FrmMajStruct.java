@@ -161,30 +161,30 @@ public class FrmMajStruct extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(FrmMajStruct.class.getResource("/Images/load-download-icon.png")));
 		panel.add(btnNewButton);
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JPanel panel_7 = new JPanel();
+		panel.add(panel_7);
+		
+		JPanel panel_8 = new JPanel();
+		panel.add(panel_8);
+		
+		JButton btnNewButton_2 = new JButton("");
 		panel.add(btnNewButton_2);
+		
+		JPanel panel_9 = new JPanel();
+		panel.add(panel_9);
+		
+		JPanel panel_6 = new JPanel();
+		panel.add(panel_6);
+		
+		JButton btnNewButton_3 = new JButton("");
+		panel.add(btnNewButton_3);
+		
+		JPanel panel_4 = new JPanel();
+		panel.add(panel_4);
 		
 		JButton btnNewButton_1 = new JButton("Appliquer");
 		btnNewButton_1.setIcon(new ImageIcon(FrmMajStruct.class.getResource("/Images/verifier-true-icone-8616-96.png")));
 		panel.add(btnNewButton_1);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Forcer");
-		panel.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("New radio button");
-		panel.add(rdbtnNewRadioButton_2);
-		
-		JComboBox comboBox = new JComboBox();
-		panel.add(comboBox);
-		
-		JButton btnNewButton_3 = new JButton("New button");
-		panel.add(btnNewButton_3);
-		
-		JSpinner spinner = new JSpinner();
-		panel.add(spinner);
-		
-		JSeparator separator = new JSeparator();
-		panel.add(separator);
 		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setValue(90);

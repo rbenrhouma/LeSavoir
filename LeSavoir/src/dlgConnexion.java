@@ -31,6 +31,9 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class dlgConnexion extends JFrame {
 
@@ -40,7 +43,12 @@ public class dlgConnexion extends JFrame {
 	private JTextField eSqlServerName;
 	private JTextField eSqlPort;
 	private JTextField eSqlUer;
-	private JTextField eSqlPassword;
+	private JTextField eSqlServerNameSys;
+	private JTextField eSqlPortSys;
+	private JTextField eSqlUerSys;
+	private JTextField eBaseNameSys;
+	private JPasswordField eSqlPasswordSys;
+	private JPasswordField eSqlPassword;
 
 	/**
 	 * Launch the application.
@@ -88,11 +96,13 @@ public class dlgConnexion extends JFrame {
 		AppliConnexion.setLayout(null);
 		
 		eApplicationUser = new JTextField();
+		eApplicationUser.setText("Ridha");
 		eApplicationUser.setBounds(233, 68, 135, 20);
 		eApplicationUser.setColumns(10);
 		AppliConnexion.add(eApplicationUser);
 		
 		eApplicationPassWord = new JPasswordField();
+		eApplicationPassWord.setText("Admin");
 		eApplicationPassWord.setBounds(233, 112, 135, 20);
 		AppliConnexion.add(eApplicationPassWord);
 		
@@ -115,12 +125,12 @@ public class dlgConnexion extends JFrame {
 		AppliConnexion.add(lblNewLabel);
 		
 		JLabel lblUtilisateur = new JLabel("Utilisateur");
-		lblUtilisateur.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblUtilisateur.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblUtilisateur.setBounds(149, 71, 74, 14);
 		AppliConnexion.add(lblUtilisateur);
 		
 		JLabel lblMotDePasse = new JLabel("Mot de passe");
-		lblMotDePasse.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblMotDePasse.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblMotDePasse.setBounds(149, 115, 85, 14);
 		AppliConnexion.add(lblMotDePasse);
 		
@@ -137,8 +147,8 @@ public class dlgConnexion extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "  SQL Serveur   ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setBounds(116, 28, 283, 184);
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "  SQL Serveur   [ Base Syst\u00E8me ]  ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(110, 10, 280, 205);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -162,23 +172,119 @@ public class dlgConnexion extends JFrame {
 		panel_1.add(eSqlPort);
 		
 		JLabel lblUser = new JLabel("User");
-		lblUser.setBounds(20, 96, 112, 14);
+		lblUser.setBounds(20, 119, 112, 14);
 		panel_1.add(lblUser);
 		
 		eSqlUer = new JTextField();
 		eSqlUer.setText("Administratur");
 		eSqlUer.setColumns(10);
-		eSqlUer.setBounds(118, 93, 145, 20);
+		eSqlUer.setBounds(118, 116, 145, 20);
 		panel_1.add(eSqlUer);
 		
 		JLabel lblMotDePasse_1 = new JLabel("Mot de passe");
-		lblMotDePasse_1.setBounds(20, 126, 98, 14);
+		lblMotDePasse_1.setBounds(20, 146, 98, 14);
 		panel_1.add(lblMotDePasse_1);
 		
-		eSqlPassword = new JTextField();
+		JCheckBox chckbxSameServer = new JCheckBox("Base Systeme sur un autre serveur");
+		chckbxSameServer.setSelected(true);
+		chckbxSameServer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				eSqlServerNameSys.setEnabled(!chckbxSameServer.isSelected());
+				eSqlPortSys.setEnabled(!chckbxSameServer.isSelected());
+				eSqlUerSys.setEnabled(!chckbxSameServer.isSelected());
+				eSqlPasswordSys.setEnabled(!chckbxSameServer.isSelected());
+			}
+		});
+		chckbxSameServer.setBackground(Color.WHITE);
+		chckbxSameServer.setBounds(6, 173, 259, 20);
+		panel_1.add(chckbxSameServer);
+		
+		JLabel lblBaseName = new JLabel("Base Name");
+		lblBaseName.setBounds(20, 91, 98, 14);
+		panel_1.add(lblBaseName);
+		
+		JComboBox cbDataBaseName = new JComboBox();
+		cbDataBaseName.setModel(new DefaultComboBoxModel(new String[] {"Base1", "Base2", "Base3"}));
+		cbDataBaseName.setSelectedIndex(1);
+		cbDataBaseName.setToolTipText("");
+		cbDataBaseName.setBounds(118, 89, 145, 20);
+		panel_1.add(cbDataBaseName);
+		
+		eSqlPassword = new JPasswordField();
 		eSqlPassword.setText("Admin");
-		eSqlPassword.setColumns(10);
-		eSqlPassword.setBounds(118, 123, 145, 20);
+		eSqlPassword.setBounds(118, 143, 145, 20);
 		panel_1.add(eSqlPassword);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.WHITE);
+		tabbedPane.addTab("SQL Connexion \u00E8meBase Syst\u00E8me", null, panel_2, null);
+		panel_2.setLayout(null);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "  SQL Serveur   ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_3.setBackground(Color.WHITE);
+		panel_3.setBounds(110, 10, 280, 205);
+		panel_2.add(panel_3);
+		
+		JLabel label = new JLabel("Nom");
+		label.setBounds(20, 36, 112, 14);
+		panel_3.add(label);
+		
+		eSqlServerNameSys = new JTextField();
+		eSqlServerNameSys.setBackground(Color.WHITE);
+		eSqlServerNameSys.setText("(local)\\SQLSERVER2012");
+		eSqlServerNameSys.setColumns(10);
+		eSqlServerNameSys.setBounds(118, 33, 145, 20);
+		panel_3.add(eSqlServerNameSys);
+		
+		JLabel label_1 = new JLabel("Port");
+		label_1.setBounds(20, 64, 112, 14);
+		panel_3.add(label_1);
+		
+		eSqlPortSys = new JTextField();
+		eSqlPortSys.setBackground(Color.WHITE);
+		eSqlPortSys.setColumns(10);
+		eSqlPortSys.setBounds(118, 61, 145, 20);
+		panel_3.add(eSqlPortSys);
+		
+		JLabel label_2 = new JLabel("User");
+		label_2.setBounds(20, 119, 112, 14);
+		panel_3.add(label_2);
+		
+		eSqlUerSys = new JTextField();
+		eSqlUerSys.setBackground(Color.WHITE);
+		eSqlUerSys.setText("Administratur");
+		eSqlUerSys.setColumns(10);
+		eSqlUerSys.setBounds(118, 119, 145, 20);
+		panel_3.add(eSqlUerSys);
+		
+		JLabel label_3 = new JLabel("Mot de passe");
+		label_3.setBounds(20, 149, 98, 14);
+		panel_3.add(label_3);
+		
+		JLabel label_4 = new JLabel("Base Name");
+		label_4.setBounds(20, 91, 98, 14);
+		panel_3.add(label_4);
+		
+		eBaseNameSys = new JTextField();
+		eBaseNameSys.setEditable(false);
+		eBaseNameSys.setEnabled(false);
+		eBaseNameSys.setText("DB_SYSTEME");
+		eBaseNameSys.setColumns(10);
+		eBaseNameSys.setBounds(118, 89, 145, 20);
+		panel_3.add(eBaseNameSys);
+		
+		eSqlPasswordSys = new JPasswordField();
+		eSqlPasswordSys.setBackground(Color.WHITE);
+		eSqlPasswordSys.setText("Admin");
+		eSqlPasswordSys.setBounds(118, 149, 145, 20);
+		panel_3.add(eSqlPasswordSys);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_3.setIcon(new ImageIcon(dlgConnexion.class.getResource("/Images/syst\u00E8me-de-gestion-de-base-de-donn\u00E9es-2.jpg")));
+		lblNewLabel_3.setBounds(10, 28, 106, 184);
+		panel_2.add(lblNewLabel_3);
 	}
 }
