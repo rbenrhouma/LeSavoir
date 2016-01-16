@@ -1,6 +1,5 @@
 package frm;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,34 +8,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import net.miginfocom.swing.MigLayout;
-import java.awt.CardLayout;
 import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JDesktopPane;
-import javax.swing.JToolBar;
-import javax.swing.JTabbedPane;
-import javax.swing.JSplitPane;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.JSeparator;
 import javax.swing.JProgressBar;
 import java.awt.SystemColor;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SpringLayout;
 import java.awt.Color;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Font;
 
 public class FrmMajStruct extends JFrame {

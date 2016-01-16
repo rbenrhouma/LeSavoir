@@ -19,6 +19,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JSeparator;
 import java.awt.Component;
 import javax.swing.Box;
+import javax.swing.ComboBoxEditor;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -41,7 +42,7 @@ import java.beans.PropertyChangeEvent;
 public class dlgConnexion extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField eApplicationUser;
+	static private JTextField eApplicationUser;
 	private JPasswordField eApplicationPassWord;
 	private JTextField eSqlServerName;
 	private JTextField eSqlPort;
@@ -49,20 +50,23 @@ public class dlgConnexion extends JFrame {
 	private JTextField eSqlServerNameSys;
 	private JTextField eSqlPortSys;
 	private JTextField eSqlUerSys;
-	private JTextField eBaseNameSys;
+	private JTextField eDataBaseNameSys;
 	private JPasswordField eSqlPasswordSys;
 	private JPasswordField eSqlPassword;
+	private JComboBox cbDataBaseName;
 
-	public DBConnexion baseConnexion ;         // Connexion à la base de travail 
-	public DBConnexion systemBaseConnexion ;   // Connexion à la base système pour mise à jour.
+	public static ApplicationConnexion ApplicationSession ;         // Connexion à la base de travail 
+	private JTextField eDataBaseName;
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@SuppressWarnings("deprecation")
 			public void run() {
 				try {
-					dlgConnexion frame = new dlgConnexion();
+					dlgConnexion frame = new dlgConnexion();					
 					frame.setLocationRelativeTo(null);  
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -76,6 +80,7 @@ public class dlgConnexion extends JFrame {
 	 * Create the frame.
 	 */
 	
+	@SuppressWarnings("deprecation")
 	private void FillEditsSystemDB(){
 		eSqlServerNameSys.setText(eSqlServerName.getText()); 
 		eSqlPortSys.setText(eSqlPortSys.getText());
@@ -122,6 +127,33 @@ public class dlgConnexion extends JFrame {
 		JButton button = new JButton("Ok");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				ApplicationSession = new ApplicationConnexion();         
+				// paraètres de la connexion de la base Système
+				ApplicationSession.SystemeSession.SqlUser.UserName 		= eSqlUerSys.getText();
+				ApplicationSession.SystemeSession.SqlUser.userPassword 	= eSqlPasswordSys.getText();					
+				ApplicationSession.SystemeSession.ServeurName 			= eSqlServerNameSys.getText();
+				ApplicationSession.SystemeSession.DataBase 			= eDataBaseNameSys.getText();
+				ApplicationSession.SystemeSession.localhost 			= eSqlPortSys.getText();
+				ApplicationSession.SystemeSession.ExecuteConnexion();
+				if (! ApplicationSession.SystemeSession.ConnexionIsOK){
+					System.out.print("Connexion à la base système impossible");
+				}
+				
+				// paraètres de la connexion de la base principale
+				ApplicationSession.Session.SqlUser.UserName 		= eSqlUer.getText();
+				ApplicationSession.Session.SqlUser.userPassword 	= eSqlPassword.getText();					
+				ApplicationSession.Session.ServeurName 			= eSqlServerName.getText();
+				ApplicationSession.Session.DataBase 			= cbDataBaseName.getSelectedItem().toString();;
+				ApplicationSession.Session.ExecuteConnexion();
+				if (!ApplicationSession.Session.ConnexionIsOK) {
+					System.out.print("Connexion à la base de trvail [" + ApplicationSession.Session.DataBase + "] impossible");
+				};
+				
+				
+				ApplicationSession.ApplicationUser = eApplicationUser.getText();
+				ApplicationSession.ApplicationPassWord = eApplicationPassWord.getText();		
+				
 				
 			}
 		});
@@ -259,6 +291,11 @@ public class dlgConnexion extends JFrame {
 		eSqlPassword.setBounds(118, 143, 145, 20);
 		panel_1.add(eSqlPassword);
 		
+		eDataBaseName = new JTextField();
+		eDataBaseName.setBounds(246, 88, 86, 20);
+		panel_1.add(eDataBaseName);
+		eDataBaseName.setColumns(10);
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("SQL Connexion \u00E8meBase Syst\u00E8me", null, panel_2, null);
@@ -318,13 +355,13 @@ public class dlgConnexion extends JFrame {
 		label_4.setBounds(20, 91, 98, 14);
 		panel_3.add(label_4);
 		
-		eBaseNameSys = new JTextField();
-		eBaseNameSys.setEditable(false);
-		eBaseNameSys.setEnabled(false);
-		eBaseNameSys.setText("DB_SYSTEME");
-		eBaseNameSys.setColumns(10);
-		eBaseNameSys.setBounds(118, 89, 145, 20);
-		panel_3.add(eBaseNameSys);
+		eDataBaseNameSys = new JTextField();
+		eDataBaseNameSys.setEditable(false);
+		eDataBaseNameSys.setEnabled(false);
+		eDataBaseNameSys.setText("DB_SYSTEME");
+		eDataBaseNameSys.setColumns(10);
+		eDataBaseNameSys.setBounds(118, 89, 145, 20);
+		panel_3.add(eDataBaseNameSys);
 		
 		eSqlPasswordSys = new JPasswordField();
 		eSqlPasswordSys.setEditable(false);

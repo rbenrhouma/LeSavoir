@@ -4,11 +4,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DBConnexion {
+	public String ServeurName;
 	public String localhost;
-	public String CurrentDataBase;
-	public String SystemDataBase;
+	public String DataBase;
 	public User SqlUser;
-	public User ApplicationUser;
 	public Connection MyConnexion;
 	public Statement MyStatement;
 	public ResultSet MyResultSet;
@@ -18,8 +17,6 @@ public class DBConnexion {
 		User user = new User();
 		user.UserName ="";
 		user.userPassword="";
-		user.SqlUser = true;
-		this.SqlUser = user;
 		localhost = "49159";
 		ConnexionIsOK = false;		
 	}
@@ -27,17 +24,17 @@ public class DBConnexion {
 	public String getConnexionString()
 	{
 		//String connectionUrl = "jdbc:sqlserver://localhost:49159;databaseName=SYSTEME;user=Administrateur;password=Admin";
-		return "jdbc:sqlserver://localhost:" +localhost+
-				";databaseName=" + CurrentDataBase+
-				";user=" + SqlUser.UserName+
-				";password=" + SqlUser.userPassword;
+		return "jdbc:sqlserver://localhost:" + localhost +
+			   ";databaseName=" + DataBase+
+			   ";user=" + SqlUser.UserName+
+			   ";password=" + SqlUser.userPassword
+				;
 	}
 	public boolean ExecuteConnexion() {
 	      
 	      //Statement stmt = null;
 	      //ResultSet rs = null;	
 		 ConnexionIsOK = true;
-
 	      try {
 	    	  	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	    	  	String StrCon = getConnexionString();
