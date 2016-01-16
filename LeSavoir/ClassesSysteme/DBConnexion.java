@@ -14,9 +14,9 @@ public class DBConnexion {
 	public Boolean ConnexionIsOK ;
 	
 	public DBConnexion(){
-		User user = new User();
-		user.UserName ="";
-		user.userPassword="";
+		SqlUser = new User();
+		SqlUser.UserName ="";
+		SqlUser.userPassword="";
 		localhost = "49159";
 		ConnexionIsOK = false;		
 	}

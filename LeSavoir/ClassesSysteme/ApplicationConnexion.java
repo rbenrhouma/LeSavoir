@@ -5,7 +5,7 @@ public class ApplicationConnexion {
 	public String ApplicationUser;
 	public String ApplicationPassWord;
 	
-	public void ApplicationConnexion(){
+	public ApplicationConnexion(){
 		Session = new DBConnexion();
 		SystemeSession = new DBConnexion();
 	}
