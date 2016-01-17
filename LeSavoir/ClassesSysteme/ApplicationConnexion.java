@@ -9,4 +9,7 @@ public class ApplicationConnexion {
 		Session = new DBConnexion();
 		SystemeSession = new DBConnexion();
 	}
+	public boolean ApplicationUserExist(){
+		return true;
+	}
 }

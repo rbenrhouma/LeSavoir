@@ -23,12 +23,12 @@ public class DBConnexion {
 	
 	public String getConnexionString()
 	{
-		//String connectionUrl = "jdbc:sqlserver://localhost:49159;databaseName=SYSTEME;user=Administrateur;password=Admin";
+		//String connectionUrl = "jdbc:sqlserver://localhost:49159;databaseName=DB_SYSTEME;user=Administrateur;password=Admin";
+		//return 	connectionUrl;					  
 		return "jdbc:sqlserver://localhost:" + localhost +
 			   ";databaseName=" + DataBase+
 			   ";user=" + SqlUser.UserName+
-			   ";password=" + SqlUser.userPassword
-				;
+			   ";password=" + SqlUser.userPassword	;
 	}
 	public boolean ExecuteConnexion() {
 	      
