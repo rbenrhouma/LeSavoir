@@ -161,11 +161,10 @@ public class dlgConnexion extends JFrame {
 				ApplicationSession.ApplicationUser = eApplicationUser.getText();
 				ApplicationSession.ApplicationPassWord = eApplicationPassWord.getText();	
 				if (ApplicationSession.ApplicationUserExist()){
-					
+					dispose();
 					FrmMain frame = new FrmMain();					
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-					frame.setVisible(true);
-					
+					frame.setVisible(true);					
 				}
 				
 				
