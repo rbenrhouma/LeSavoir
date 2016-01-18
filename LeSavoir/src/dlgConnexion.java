@@ -1,32 +1,19 @@
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JPasswordField;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import java.awt.Canvas;
-import java.awt.Panel;
-import java.awt.Scrollbar;
-import java.awt.Choice;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
-import javax.swing.JSeparator;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.ComboBoxEditor;
 import javax.swing.border.TitledBorder;
-
 import frm.FrmMain;
-
 import javax.swing.UIManager;
 import java.awt.Color;
-import java.awt.Window.Type;
 import java.awt.Frame;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Rectangle;
@@ -34,7 +21,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.JRadioButton;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.KeyAdapter;
@@ -172,8 +159,6 @@ public class dlgConnexion extends JFrame {
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					frame.setVisible(true);					
 				}
-				
-				
 			}
 		});
 		button.setBounds(197, 178, 79, 23);

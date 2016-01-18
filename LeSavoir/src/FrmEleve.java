@@ -1,29 +1,10 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
-import javax.swing.JButton;
 import javax.swing.JScrollPane;
-import java.awt.Font;
-import java.awt.Component;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import net.miginfocom.swing.MigLayout;
 import java.awt.FlowLayout;
-import javax.swing.JComboBox;
-import java.awt.GridBagConstraints;
-import javax.swing.JLabel;
-import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JSplitPane;
 
