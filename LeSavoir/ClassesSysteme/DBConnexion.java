@@ -1,7 +1,9 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Calendar;
 
 public class DBConnexion {
 	public String ServeurName;
@@ -12,19 +14,33 @@ public class DBConnexion {
 	public Statement MyStatement;
 	public ResultSet MyResultSet;
 	public Boolean ConnexionIsOK ;
+	public Date DataBaseVersion ;
 	
+	private Date getDataBaseVersion(){
+		if (DataBaseVersion.getDate() == 0)
+		{
+			// chercher la date de la version à partir de la table infos
+			return DataBaseVersion;
+			
+		}
+			
+		else
+			return DataBaseVersion;
+	}
+	
+	@SuppressWarnings("deprecation")
 	public DBConnexion(){
 		SqlUser = new User();
 		SqlUser.UserName ="";
 		SqlUser.userPassword="";
 		localhost = "49159";
 		ConnexionIsOK = false;		
+		
+		//DataBaseVersion.setDate(0);
 	}
 	
 	public String getConnexionString()
 	{
-		//String connectionUrl = "jdbc:sqlserver://localhost:49159;databaseName=DB_SYSTEME;user=Administrateur;password=Admin";
-		//return 	connectionUrl;					  
 		return "jdbc:sqlserver://localhost:" + localhost +
 			   ";databaseName=" + DataBase+
 			   ";user=" + SqlUser.UserName+
@@ -44,6 +60,7 @@ public class DBConnexion {
 	    	  	//String SQL = "SELECT * FROM TABLES";
 	    	  	//stmt = connexion.createStatement();
 	    	  	//rs = stmt.executeQuery(SQL);
+	    	  	
 	         
 	      	}
 	      

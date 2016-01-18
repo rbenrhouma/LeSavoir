@@ -143,6 +143,12 @@ public class dlgConnexion extends JFrame {
 				if (! ApplicationSession.SystemeSession.ConnexionIsOK){
 					System.out.print("Connexion à la base système impossible");
 				}
+				else
+				{
+					// récuperer la version de la base.
+					
+					
+				}
 				
 				// paraètres de la connexion de la base principale
 				ApplicationSession.Session.SqlUser.UserName 		= eSqlUer.getText();
