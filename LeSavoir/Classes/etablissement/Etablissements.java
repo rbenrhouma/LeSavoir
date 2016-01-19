@@ -31,14 +31,22 @@ public class Etablissements {
 	      " EP.VALUE AS ExtendedPropertyValue " +
 	      " FROM sys.extended_properties AS EP " +
 	      " WHERE EP.name <> 'MS_Description' " +
-	      " AND EP.class = 0 AND DB_NAME()  = '"+ EtabName + "'";
+	      " AND EP.class = 0 AND DB_NAME()  = 'LE_SAVOIR' "; //"+ EtabName + "'";
 	       try {
 	    	   stmt =  aConnexion.MyConnexion.createStatement();
-	    	   rs = stmt.executeQuery(SQL);
+	    	   rs = stmt.executeQuery(
+	    			   
+	    			   
+ //" SELECT *  FROM TTTTT  " 	
+	    			   SQL
+	    			   
+                                     );
 	    	   while (rs.next()) {
-	    	   
+	    		  
 	    		   String sFieldName = rs.getString("ExtendedPropertyDescription");
 	    		   String sFieldValue = rs.getString("ExtendedPropertyValue");
+	    		   System.out.println(sFieldName);
+	    		   System.out.println(sFieldValue);
 	    		   if ((sFieldName != null) & (sFieldValue != null))
 	    		   {
 	    			   if (sFieldName.equals("ETAB_NAME")) {this.EtabName = sFieldValue ; };
