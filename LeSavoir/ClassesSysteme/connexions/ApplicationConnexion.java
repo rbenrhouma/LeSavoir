@@ -1,3 +1,4 @@
+package connexions;
 
 public class ApplicationConnexion {
 	public DBConnexion Session ;

@@ -1,3 +1,4 @@
+package structure;
 // class des utilisateur
 public class User {
 	public String UserName;

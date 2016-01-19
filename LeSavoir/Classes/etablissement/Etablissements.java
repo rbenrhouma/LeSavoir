@@ -1,7 +1,12 @@
+package etablissement;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+
+import connexions.DBConnexion;
+import divers.Adresse;
 
 public class Etablissements {
 	int EtabNumVersion;
@@ -26,7 +31,7 @@ public class Etablissements {
 	      " EP.VALUE AS ExtendedPropertyValue " +
 	      " FROM sys.extended_properties AS EP " +
 	      " WHERE EP.name <> 'MS_Description' " +
-	      " AND EP.class = 0 AND DB_NAME()  = " + EtabName + "'";
+	      " AND EP.class = 0 AND DB_NAME()  = '"+ EtabName + "'";
 	       try {
 	    	   stmt =  aConnexion.MyConnexion.createStatement();
 	    	   rs = stmt.executeQuery(SQL);
@@ -38,9 +43,9 @@ public class Etablissements {
 	    		   {
 	    			   if (sFieldName.equals("ETAB_NAME")) {this.EtabName = sFieldValue ; };
 	    			   if (sFieldName.equals("ETAB_ADRESSE_NUM")) {this.EtabAdresse.numeroComplement = sFieldValue ; };
-	    			   if (sFieldName.equals("ETAB_ADRESSE_NOM")) {this.EtabAdresse.nomVoie = sFieldValue ; };
-	    			   if (sFieldName.equals("ETAB_ADRESSE_CODEPOSTAL")) {this.EtabAdresse.codePostal = sFieldValue ; };
-	    			   if (sFieldName.equals("ETAB_ADRESSE_VILLE")) {this.EtabAdresse.ville = sFieldValue ; };
+	    			   if (sFieldName.equals("ETAB_ADRESSE_NOM")) {this.EtabAdresse.setNomVoie(sFieldValue) ; };
+	    			   if (sFieldName.equals("ETAB_ADRESSE_CODEPOSTAL")) {this.EtabAdresse.setCodePostal(sFieldValue) ; };
+	    			   if (sFieldName.equals("ETAB_ADRESSE_VILLE")) {this.EtabAdresse.setVille(sFieldValue) ; };
   			   
 	    		   }
 	       

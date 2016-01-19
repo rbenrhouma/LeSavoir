@@ -1,3 +1,4 @@
+package eleves;
 
 public class NomPrenom {
 	String nom ;

@@ -1,31 +1,17 @@
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTabbedPane;
-import javax.swing.border.TitledBorder;
 import frm.FrmMain;
-import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.Frame;
-import java.awt.Dialog.ModalExclusionType;
-import java.awt.Rectangle;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import connexions.ApplicationConnexion;
+import etablissement.Etablissements;
+
+import java.awt.*;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.event.*;
+
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
@@ -154,8 +140,11 @@ public class dlgConnexion extends JFrame {
 				ApplicationSession.ApplicationUser = eApplicationUser.getText();
 				ApplicationSession.ApplicationPassWord = eApplicationPassWord.getText();	
 				if (ApplicationSession.ApplicationUserExist()){
+					
+					Etablissements aEtab = new Etablissements(ApplicationSession.Session.DataBase, ApplicationSession.Session);
 					dispose();
 					FrmMain frame = new FrmMain();					
+					frame.etab = aEtab; 
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					frame.setVisible(true);					
 				}

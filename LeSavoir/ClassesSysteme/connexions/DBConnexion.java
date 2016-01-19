@@ -1,8 +1,11 @@
+package connexions;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import structure.User;
 
 
 public class DBConnexion {
