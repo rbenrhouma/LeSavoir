@@ -23,7 +23,7 @@ public class FrmMain extends JFrame {
 
 	private JPanel contentPane;
 	public Etablissements etab;
-
+	JLabel LblEtabName;
 	/**
 	 * Launch the application.
 	 */
@@ -35,6 +35,7 @@ public class FrmMain extends JFrame {
 					FrmMain frame = new FrmMain();					
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					
+					frame.LblEtabName.setText("test");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

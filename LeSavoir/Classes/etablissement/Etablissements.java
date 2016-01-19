@@ -25,13 +25,13 @@ public class Etablissements {
 	      Statement stmt = null;
 	      ResultSet rs = null;	
 	      String SQL = 
-	      " SELECT EP.class_desc AS PropertyOn, " +
-	      " DB_NAME() AS DatabaseName, " +
-	      " EP.name AS ExtendedPropertyDescription, " +
-	      " EP.VALUE AS ExtendedPropertyValue " +
-	      " FROM sys.extended_properties AS EP " +
-	      " WHERE EP.name <> 'MS_Description' " +
-	      " AND EP.class = 0 AND DB_NAME()  = 'LE_SAVOIR' "; //"+ EtabName + "'";
+	      " SELECT EP.class_desc AS PropertyOn, " + "\n" +
+	      " DB_NAME() AS DatabaseName, " + "\n" +
+	      " EP.name AS ExtendedPropertyDescription, " + "\n" +
+	      " EP.VALUE AS ExtendedPropertyValue " + "\n" +
+	      " FROM sys.extended_properties AS EP " + "\n" +
+	      " WHERE EP.name <> 'MS_Description' " + "\n" +
+	      " AND EP.class = 0 AND DB_NAME()  = '" + EtabName + "'";
 	       try {
 	    	   stmt =  aConnexion.MyConnexion.createStatement();
 	    	   rs = stmt.executeQuery(
