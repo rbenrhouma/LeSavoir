@@ -5,13 +5,13 @@ public class Table {
 	String tableName;
 	String tableDescription;
 	int tableVersion;
-	
-	void LoadFilelds(){
+
+	void LoadFilelds() {
 		// chargement de la iste des champs
 	};
-	
-	String TableCreateScript(){
+
+	String TableCreateScript() {
 		// Retourne le script de Create ou bien Alter de la table
-		return "";		
+		return "";
 	}
 }

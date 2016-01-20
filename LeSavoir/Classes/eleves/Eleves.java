@@ -2,13 +2,13 @@ package eleves;
 
 public class Eleves {
 	NomPrenom info;
-	Eleves (int id) 
-	{
+
+	Eleves(int id) {
 		info.nom = "";
-		info.prenom ="";
-		
+		info.prenom = "";
+
 		info.nomArabe = "";
-		info.prenomArabe ="";
+		info.prenomArabe = "";
 	}
 
 }
