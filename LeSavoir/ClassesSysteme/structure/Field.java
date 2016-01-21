@@ -10,4 +10,5 @@ public class Field {
 	public Boolean fieldPrimaryKey;  //Clé primaire.
 	public Boolean fieldForeignKey;	// clé étrangère
 	public Table fieldTable;
+	 
 }

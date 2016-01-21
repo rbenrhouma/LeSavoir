@@ -4,7 +4,7 @@ public class Table {
 	public String tablePrefixe;
 	public String tableName;
 	public String tableDescription;
-	int tableVersion;
+	public int tableVersion;
 
 	public void LoadFilelds() {
 		// chargement de la iste des champs
