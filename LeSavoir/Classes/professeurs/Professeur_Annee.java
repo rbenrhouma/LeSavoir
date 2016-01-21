@@ -1,5 +1,8 @@
 package professeurs;
 
-public class Professeur_Annee {
+import anneeScolaire.AnneeScolaire;
 
+public class Professeur_Annee {
+	public AnneeScolaire annee;
+	public Professeur profeseur;
 }

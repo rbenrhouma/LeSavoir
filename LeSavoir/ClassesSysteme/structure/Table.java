@@ -1,16 +1,16 @@
 package structure;
 
 public class Table {
-	String tablePrefixe;
-	String tableName;
-	String tableDescription;
+	public String tablePrefixe;
+	public String tableName;
+	public String tableDescription;
 	int tableVersion;
 
-	void LoadFilelds() {
+	public void LoadFilelds() {
 		// chargement de la iste des champs
 	};
 
-	String TableCreateScript() {
+	public String TableCreateScript() {
 		// Retourne le script de Create ou bien Alter de la table
 		return "";
 	}

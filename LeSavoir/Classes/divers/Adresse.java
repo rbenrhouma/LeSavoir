@@ -10,7 +10,13 @@ public class Adresse {
 	String pays;
 
 	public String AdresseAsString(){
-		return numeroComplement + " "+ nomVoie + " "+codePostal +" "+ ville;
+		return numeroComplement + " "+ nomVoie + " "+codePostal +" "+ ville +" "+ pays;
+	};
+	
+	public String AdresseToPrint(){
+		return numeroComplement + " "+ nomVoie + "\n" + 
+	           codePostal +" "+ ville + "\n" + 
+			   pays;
 	};
 	
 	public String getNomVoie() {
