@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="eleves.Eleves" project="LeSavoir" file="/LeSavoir/Classes/eleves/Eleves.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="139" width="131" x="33" y="-44"/>    
+    <position height="139" width="131" x="79" y="-54"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="etablissement.Etablissements" project="LeSavoir" 
     file="/LeSavoir/Classes/etablissement/Etablissements.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="181" width="179" x="857" y="-58"/>    
+    <position height="181" width="179" x="844" y="-60"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="anneeScolaire.AnneeScolaire" project="LeSavoir" 
     file="/LeSavoir/Classes/anneeScolaire/AnneeScolaire.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="298" y="207"/>    
+    <position height="-1" width="-1" x="334" y="175"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="tuteur.Tuteur" project="LeSavoir" file="/LeSavoir/Classes/tuteur/Tuteur.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="83" width="109" x="570" y="148"/>    
+    <position height="187" width="167" x="561" y="149"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="eleves.Eleve_Annee" project="LeSavoir" 
     file="/LeSavoir/Classes/eleves/Eleve_Annee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="84" y="179"/>    
+    <position height="-1" width="-1" x="92" y="164"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="professeurs.Professeur_Annee" project="LeSavoir" 
     file="/LeSavoir/Classes/professeurs/Professeur_Annee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="585" y="306"/>    
+    <position height="-1" width="-1" x="213" y="379"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="tuteur.TuteurAnnee" project="LeSavoir" 
     file="/LeSavoir/Classes/tuteur/TuteurAnnee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="743" y="6"/>    
+    <position height="-1" width="-1" x="739" y="8"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -82,58 +82,95 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="10">    
+  <class id="10" language="java" name="professeurs.Professeur" project="LeSavoir" 
+    file="/LeSavoir/Classes/professeurs/Professeur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="107" x="437" y="354"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="11">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="11" name="info"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
+      <attribute id="12" name="info"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="13">    
+  <association id="14">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="15" name="profeseur"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="17">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="14" name="info"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="18" name="info"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
+  <association id="20">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="17" name="EtabAdresse"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+      <attribute id="21" name="EtabAdresse"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
+  <association id="23">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="20" name="annee"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+      <attribute id="24" name="annee"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="23" name="tuteur"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="26" name="adresse"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+  <association id="26">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="27" name="adresse">        
+        <position height="18" width="50" x="732" y="374"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
+  <association id="29">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="30" name="info"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="33" name="tuteur"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="36" name="adresse">        
+        <position height="18" width="50" x="765" y="267"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="29" name="annee"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+      <attribute id="39" name="annee"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

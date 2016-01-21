@@ -30,7 +30,7 @@
   </enumeration>  
   <class id="4" language="java" name="connexions.ApplicationConnexion" project="LeSavoir" 
     file="/LeSavoir/ClassesSysteme/connexions/ApplicationConnexion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="918" y="342"/>    
+    <position height="-1" width="-1" x="426" y="345"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="connexions.DBConnexion" project="LeSavoir" 
     file="/LeSavoir/ClassesSysteme/connexions/DBConnexion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="505" y="385"/>    
+    <position height="-1" width="-1" x="117" y="380"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,9 @@
   </class>  
   <association id="6">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="7" name="Session"/>      
+      <attribute id="7" name="Session">        
+        <position height="18" width="49" x="212" y="403"/>      
+      </attribute>      
       <multiplicity id="8" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
@@ -72,7 +74,9 @@
   </association>  
   <association id="15">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="16" name="SystemeSession"/>      
+      <attribute id="16" name="SystemeSession">        
+        <position height="18" width="91" x="219" y="307"/>      
+      </attribute>      
       <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
