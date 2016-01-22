@@ -18,6 +18,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.sql.*;
+import javax.swing.*;
 
 public class FrmMajStruct extends JFrame {
 
@@ -41,21 +46,25 @@ public class FrmMajStruct extends JFrame {
 			}
 		});
 	}
-
+	Connection connection=null;
 	/**
 	 * Create the frame.
 	 */
 	public FrmMajStruct() {
+		//connection=SQLIntegrityConstraintViolationException
 		setTitle("Mise \u00E0 jour de la strucure de la base de donn\u00E9e");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 629, 364);
+		setBounds(100, 100, 1001, 567);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 3, 1, 1));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane);
 
 		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1);
+		scrollPane.setViewportView(panel_1);
 
 		t_table = new JTable();
 		t_table.setBackground(SystemColor.activeCaption);
@@ -91,9 +100,12 @@ public class FrmMajStruct extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_5.add(lblNewLabel);
 		panel_1.setLayout(gl_panel_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		contentPane.add(scrollPane_1);
 
 		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2);
+		scrollPane_1.setViewportView(panel_2);
 
 		t_Fields = new JTable();
 		t_Fields.setBackground(new Color(102, 205, 170));
@@ -129,6 +141,24 @@ public class FrmMajStruct extends JFrame {
 		panel.setLayout(new GridLayout(10, 1, 0, 0));
 
 		JButton btnNewButton = new JButton("Chargement");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				try {
+						String query = "SELECT * FROM TABLES";
+						PreparedStatement pst = connection.prepareStatement(query);
+						ResultSet rs = pst.executeQuery();
+						
+				} catch (Exception X) {
+					X.printStackTrace();
+				}				
+				
+				
+				
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon(FrmMajStruct.class.getResource("/Images/load-download-icon.png")));
 		panel.add(btnNewButton);
 

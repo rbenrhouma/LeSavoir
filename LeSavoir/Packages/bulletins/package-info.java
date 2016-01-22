@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Ridha
- *
- */
-package bulletins;

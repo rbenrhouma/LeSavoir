@@ -29,7 +29,7 @@ public class FrmMain extends JFrame {
 	private JPanel contentPane;
 	public Etablissements MyEtab;
 
-	DBConnexion MainConnexion;
+	
 
 	/**
 	 * Launch the application.
@@ -51,10 +51,12 @@ public class FrmMain extends JFrame {
 		});
 	}
 
+	DBConnexion MainConnexion;
 	/**
 	 * Create the frame.
 	 */
 	public FrmMain() {
+		//DBConnexion MainConnexion; 
 		setTitle("Gestion scolaire Ecole LE SAVOIR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 682, 381);
@@ -180,6 +182,7 @@ public class FrmMain extends JFrame {
 		mntmNewMenuItem_27.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrmMajStruct frm = new FrmMajStruct();
+				frm.connection = MainConnexion.MyConnexion;
 				frm.setVisible(true);
 			}
 		});
@@ -187,14 +190,36 @@ public class FrmMain extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					String query = "SELECT * FROM TABLES";
+					PreparedStatement pst = MainConnexion.MyConnexion.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					
+			} catch (Exception X) {
+				X.printStackTrace();
+			}	
+				
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 656, Short.MAX_VALUE)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(411, Short.MAX_VALUE)
+					.addComponent(btnNewButton)
+					.addGap(156))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 312, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(160, Short.MAX_VALUE)
+					.addComponent(btnNewButton)
+					.addGap(129))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
