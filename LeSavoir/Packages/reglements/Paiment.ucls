@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="tuteur.TuteurAnnee" project="LeSavoir" 
     file="/LeSavoir/Classes/tuteur/TuteurAnnee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="252" width="193" x="93" y="27"/>    
+    <position height="246" width="200" x="29" y="54"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="reglements.Reglement" project="LeSavoir" 
     file="/LeSavoir/Packages/reglements/Reglement.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="802" y="175"/>    
+    <position height="-1" width="-1" x="842" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,8 +21,8 @@
   </class>  
   <class id="3" language="java" name="anneeScolaire.AnneeScolaire" project="LeSavoir" 
     file="/LeSavoir/Classes/anneeScolaire/AnneeScolaire.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="507" y="204"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="315" width="234" x="372" y="21"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    

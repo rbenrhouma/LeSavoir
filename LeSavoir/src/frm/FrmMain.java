@@ -57,7 +57,7 @@ public class FrmMain extends JFrame {
 	public FrmMain() {
 		setTitle("Gestion scolaire Ecole LE SAVOIR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 682, 381);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 10));
@@ -66,10 +66,10 @@ public class FrmMain extends JFrame {
 		JMenu mnNewMenu_3 = new JMenu("Connexion");
 		menuBar.add(mnNewMenu_3);
 
-		JMenuItem mntmNewMenuItem_15 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Connexion/D\u00E9connexion");
 		mnNewMenu_3.add(mntmNewMenuItem_15);
 
-		JMenuItem mntmNewMenuItem_16 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_16 = new JMenuItem("Info Etablissement");
 		mnNewMenu_3.add(mntmNewMenuItem_16);
 
 		mnNewMenu_3.add(new JSeparator()); // SEPARATOR
@@ -81,6 +81,30 @@ public class FrmMain extends JFrame {
 			}
 		});
 		mnNewMenu_3.add(mntmNewMenuItem_17);
+		
+		JMenu mnTuteur = new JMenu("Tuteur");
+		menuBar.add(mnTuteur);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Liste des tuteurs");
+		mnTuteur.add(mntmNewMenuItem);
+		
+		JMenuItem mntmTuteursAnne = new JMenuItem("Tuteurs Ann\u00E9e");
+		mnTuteur.add(mntmTuteursAnne);
+		
+		JMenuItem mntmRglementDeLanne = new JMenuItem("R\u00E9glement de l'ann\u00E9e");
+		mnTuteur.add(mntmRglementDeLanne);
+		
+		JMenuItem menuItem = new JMenuItem("-");
+		mnTuteur.add(menuItem);
+		
+		JMenuItem mntmTiers = new JMenuItem("Tiers");
+		mnTuteur.add(mntmTiers);
+		
+		JMenuItem menuItem_1 = new JMenuItem("-");
+		mnTuteur.add(menuItem_1);
+		
+		JMenuItem mntmEditions_1 = new JMenuItem("Editions");
+		mnTuteur.add(mntmEditions_1);
 
 		JMenu mnNewMenu_4 = new JMenu("El\u00E8ves");
 		menuBar.add(mnNewMenu_4);
@@ -104,23 +128,38 @@ public class FrmMain extends JFrame {
 		JMenuItem mntmNewMenuItem_20 = new JMenuItem("Liste");
 		mnNewMenu_5.add(mntmNewMenuItem_20);
 
-		JMenuItem mntmNewMenuItem_21 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_21 = new JMenuItem("Professeur Ann\u00E9e");
 		mnNewMenu_5.add(mntmNewMenuItem_21);
 
-		JMenuItem mntmNewMenuItem_22 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_22 = new JMenuItem("-");
 		mnNewMenu_5.add(mntmNewMenuItem_22);
+		
+		JMenuItem mntmEditions = new JMenuItem("Editions");
+		mnNewMenu_5.add(mntmEditions);
+		
+		JMenu mnNewMenu = new JMenu("Salles");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Salle");
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem menuItem_2 = new JMenuItem("-");
+		mnNewMenu.add(menuItem_2);
+		
+		JMenuItem mntmEditions_3 = new JMenuItem("Editions");
+		mnNewMenu.add(mntmEditions_3);
 
 		JMenu mnNewMenu_6 = new JMenu("Groupe");
 		menuBar.add(mnNewMenu_6);
 
-		JMenuItem mntmNewMenuItem_23 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_23 = new JMenuItem("liste des groupes");
 		mnNewMenu_6.add(mntmNewMenuItem_23);
 
-		JMenuItem mntmNewMenuItem_24 = new JMenuItem("New menu item");
-		mnNewMenu_6.add(mntmNewMenuItem_24);
-
-		JMenuItem mntmNewMenuItem_25 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_25 = new JMenuItem("-");
 		mnNewMenu_6.add(mntmNewMenuItem_25);
+		
+				JMenuItem mntmNewMenuItem_24 = new JMenuItem("Editions");
+				mnNewMenu_6.add(mntmNewMenuItem_24);
 
 		JMenu mnAnneScolaire = new JMenu("Ann\u00E9e scolaire");
 		menuBar.add(mnAnneScolaire);
@@ -128,8 +167,11 @@ public class FrmMain extends JFrame {
 		JMenuItem mntmNewMenuItem_26 = new JMenuItem("Liste des ann\u00E9es scolaires");
 		mnAnneScolaire.add(mntmNewMenuItem_26);
 
-		JMenuItem mntmNewMenuItem_28 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_28 = new JMenuItem("-");
 		mnAnneScolaire.add(mntmNewMenuItem_28);
+		
+		JMenuItem mntmEditions_2 = new JMenuItem("Editions");
+		mnAnneScolaire.add(mntmEditions_2);
 
 		JMenu mnNewMenu_7 = new JMenu("Administration");
 		menuBar.add(mnNewMenu_7);
@@ -145,40 +187,14 @@ public class FrmMain extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-
-		JLabel LblEtabName = new JLabel("New label");
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				LblEtabName.setText(MyEtab.EtabName);
-				
-				
-				
-			}
-		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(256, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(LblEtabName, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-							.addGap(18))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addComponent(btnNewButton)
-							.addGap(79))))
+				.addGap(0, 656, Short.MAX_VALUE)
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(155, Short.MAX_VALUE)
-					.addComponent(btnNewButton)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(LblEtabName)
-					.addGap(28))
+				.addGap(0, 312, Short.MAX_VALUE)
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
