@@ -3,14 +3,11 @@ package frm;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-
 import connexions.ApplicationConnexion;
 import etablissement.Etablissements;
-
 import java.awt.*;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.event.*;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
@@ -108,9 +105,10 @@ public class dlgConnexion extends JFrame {
 				ApplicationSession = new ApplicationConnexion();
 				// paraètres de la connexion de la base Système
 				ApplicationSession.SystemeSession.SqlUser.UserName = eSqlUerSys.getText();
-				ApplicationSession.SystemeSession.SqlUser.userPassword = eSqlPasswordSys.getText();
+				
+				ApplicationSession.SystemeSession.SqlUser.userPassword = String.valueOf(eSqlPasswordSys.getPassword());
 				ApplicationSession.SystemeSession.ServeurName = eSqlServerNameSys.getText();
-				ApplicationSession.SystemeSession.DataBase = eDataBaseNameSys.getText();
+				ApplicationSession.SystemeSession.DataBaseName = eDataBaseNameSys.getText();
 				ApplicationSession.SystemeSession.localhost = eSqlPortSys.getText();
 				ApplicationSession.SystemeSession.ExecuteConnexion();
 				if (!ApplicationSession.SystemeSession.ConnexionIsOK) {
@@ -122,29 +120,29 @@ public class dlgConnexion extends JFrame {
 
 				// paraètres de la connexion de la base principale
 				ApplicationSession.Session.SqlUser.UserName = eSqlUer.getText();
-				ApplicationSession.Session.SqlUser.userPassword = eSqlPassword.getText();
+				ApplicationSession.Session.SqlUser.userPassword = String.valueOf(eSqlPassword.getPassword());
 				ApplicationSession.Session.ServeurName = eSqlServerName.getText();
 				// System.out.print(cbDataBaseName.getSelectedItem().toString());
 
-				ApplicationSession.Session.DataBase = eDataBaseName.getText();
+				ApplicationSession.Session.DataBaseName = eDataBaseName.getText();
 				ApplicationSession.Session.ExecuteConnexion();
 				if (!ApplicationSession.Session.ConnexionIsOK) {
 					System.out.print(
-							"Connexion à la base de trvail [" + ApplicationSession.Session.DataBase + "] impossible");
+							"Connexion à la base de trvail [" + ApplicationSession.Session.DataBaseName + "] impossible");
 				}
 				;
 
 				ApplicationSession.ApplicationUser = eApplicationUser.getText();
-				ApplicationSession.ApplicationPassWord = eApplicationPassWord.getText();
+				ApplicationSession.ApplicationPassWord = String.valueOf(eApplicationPassWord.getPassword());
 				if (ApplicationSession.ApplicationUserExist()) {
 
-					Etablissements aEtab = new Etablissements(ApplicationSession.Session.DataBase,
+					Etablissements aEtab = new Etablissements(ApplicationSession.Session.DataBaseName,
 						ApplicationSession.Session);
 					dispose();
 					FrmMain frame = new FrmMain();
 					frame.MyEtab = aEtab;					
 					frame.setTitle(aEtab.EtabName.toString()+" "+aEtab.EtabAdresse.AdresseAsString());
-					frame.MainConnexion = ApplicationSession.Session;
+					frame.GlobalSession = ApplicationSession;
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				}

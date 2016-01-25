@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
 
+import connexions.ApplicationConnexion;
 import connexions.DBConnexion;
 import etablissement.Etablissements;
 
@@ -51,7 +52,9 @@ public class FrmMain extends JFrame {
 		});
 	}
 
-	DBConnexion MainConnexion;
+	
+	ApplicationConnexion GlobalSession;
+	
 	/**
 	 * Create the frame.
 	 */
@@ -182,7 +185,7 @@ public class FrmMain extends JFrame {
 		mntmNewMenuItem_27.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrmMajStruct frm = new FrmMajStruct();
-				frm.connection = MainConnexion.MyConnexion;
+				frm.connection = GlobalSession.SystemeSession.MyConnexion;
 				frm.setVisible(true);
 			}
 		});
@@ -194,16 +197,21 @@ public class FrmMain extends JFrame {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if (GlobalSession.SystemeSession.ConnexionIsOK){
 				try {
+					
 					String query = "SELECT * FROM TABLES";
-					PreparedStatement pst = MainConnexion.MyConnexion.prepareStatement(query);
+					PreparedStatement pst = GlobalSession.SystemeSession.MyConnexion.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
+					while (rs.next()) {
+						System.out.print(rs.getString(1));
+					}
 					
 			} catch (Exception X) {
 				X.printStackTrace();
 			}	
 				
+			}
 			}
 		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

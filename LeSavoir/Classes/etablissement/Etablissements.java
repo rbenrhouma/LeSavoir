@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 import connexions.DBConnexion;
 import divers.Adresse;
 
