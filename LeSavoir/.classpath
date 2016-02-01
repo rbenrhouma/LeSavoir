@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="lib" path="C:/Users/Ridha/Downloads/sqljdbc_4.0.2206.100_enu/sqljdbc_4.0/enu/sqljdbc4.jar"/>
 	<classpathentry kind="var" path="GWT_HOME/gwt-user.jar"/>
+	<classpathentry kind="lib" path="Resources/rs2xml.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

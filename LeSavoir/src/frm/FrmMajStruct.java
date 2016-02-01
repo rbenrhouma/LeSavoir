@@ -21,13 +21,12 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.*;
+import net.proteanit.sql.DbUtils;
 
 
 public class FrmMajStruct extends JFrame {
 
 	private JPanel contentPane;
-	private JTable t_table;
-	private JTable t_Fields;
 
 	/**
 	 * Launch the application.
@@ -46,6 +45,8 @@ public class FrmMajStruct extends JFrame {
 		});
 	}
 	Connection connection=null;
+	private JTable t_table;
+	private JTable t_Fields;
 	/**
 	 * Create the frame.
 	 */
@@ -65,29 +66,29 @@ public class FrmMajStruct extends JFrame {
 		JPanel panel_1 = new JPanel();
 		scrollPane.setViewportView(panel_1);
 
-		t_table = new JTable();
-		t_table.setBackground(SystemColor.activeCaption);
-		t_table.setForeground(SystemColor.activeCaption);
-
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(SystemColor.textHighlight);
+		
+		t_table = new JTable();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap()
-						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_5, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 99,
-										Short.MAX_VALUE)
-						.addComponent(t_table, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-				.addContainerGap()));
-		gl_panel_1
-				.setVerticalGroup(
-						gl_panel_1.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-								gl_panel_1.createSequentialGroup().addContainerGap()
-										.addComponent(panel_5, GroupLayout.PREFERRED_SIZE, 47,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(t_table, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-										.addGap(0)));
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(13)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(t_table, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_5, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(t_table, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(233, Short.MAX_VALUE))
+		);
 		panel_5.setLayout(new GridLayout(2, 1, 0, 0));
 
 		JLabel Tables = new JLabel("Tables");
@@ -106,24 +107,31 @@ public class FrmMajStruct extends JFrame {
 		JPanel panel_2 = new JPanel();
 		scrollPane_1.setViewportView(panel_2);
 
-		t_Fields = new JTable();
-		t_Fields.setBackground(new Color(102, 205, 170));
-
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(SystemColor.activeCaption);
+		
+		t_Fields = new JTable();
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
-						.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
-								.addComponent(t_Fields, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 180,
-										Short.MAX_VALUE)
-						.addComponent(panel_3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-				.addContainerGap()));
-		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				gl_panel_2.createSequentialGroup().addContainerGap()
-						.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(t_Fields, GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE).addContainerGap()));
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(6)
+							.addComponent(t_Fields, GroupLayout.PREFERRED_SIZE, 290, GroupLayout.PREFERRED_SIZE))
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(t_Fields, GroupLayout.PREFERRED_SIZE, 322, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(128, Short.MAX_VALUE))
+		);
 		panel_3.setLayout(new GridLayout(2, 1, 0, 0));
 
 		JLabel lblFields = new JLabel("Champs");
@@ -142,11 +150,12 @@ public class FrmMajStruct extends JFrame {
 		JButton btnNewButton = new JButton("Chargement");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				
 				try {
-						String query = "SELECT * FROM TABLES";
+						String query = " SELECT * FROM TABLES ";
 						PreparedStatement pst = connection.prepareStatement(query);
 						ResultSet rs = pst.executeQuery();
+						t_table.setModel(DbUtils.resultSetToTableModel(rs));					
+
 						
 				} catch (Exception X) {
 					X.printStackTrace();
@@ -166,6 +175,25 @@ public class FrmMajStruct extends JFrame {
 		panel.add(panel_8);
 
 		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+
+				try {
+					String query = " SELECT * FROM FIELDS ";
+					PreparedStatement pst = connection.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					t_Fields.setModel(DbUtils.resultSetToTableModel(rs));					
+
+					
+			} catch (Exception X) {
+				X.printStackTrace();
+			}				
+			
+			
+			
+			}
+		});
 		panel.add(btnNewButton_2);
 
 		JPanel panel_9 = new JPanel();
